@@ -1,0 +1,96 @@
+JPN_require	python	JPN_trans
+データフレームをCSVファイルで保存したい	data.to_csv('file.csv', index=False)	dataをインデックスなしでCSVファイル'file.csv'に保存する
+配列の次元を知りたい	a.ndim	配列aの次元数
+配列の形状を知りたい	a.shape	配列aの形状
+配列を2次元にしたい	a.shape(3,2)	配列aを3行2列の2次元にする
+配列aを3次元にしたい	a.reshape(2,3,4)	aを2×3×4の3次元配列にする
+偶数のみの数列にしたい	a[a % 2 == 0]	偶数で配列aをフィルタした配列
+ある範囲の数列を作りたい	np.arange(10)	0から10未満までの整数からなる配列
+等差数列を作りたい	np.arrange(1, 10, 2)	1から2間隔で10未満までの数列の配列
+要素数を指定して等差数列を作りたい	np.linspace(-1, 1, 20)	-1から1までの20個の等差数列の配列
+0で初期化された配列を作りたい	np.zeros(20)	要素数20の0からなる配列
+要素数を指定して配列を作りたい	np.ones(10) * 2	10個の2からなる配列
+乱数列が欲しい	np.random.rand(100)	100個の乱数配列
+xyグラフを描画したい	plt.plot(x, y)	数列xとyをxyグラフに描画する
+グラフにグリッド線を追加したい	plt.grid(True)	グリッド線を有効にする
+グラフの大きさを変更したい	plt.figure(figsize=(10, 2))	グラフの大きさを10×2にする
+ラベル付きでグラフを描画したい	plt.plot(x, y, label='sin(x)')	ラベル'sin(x)'をつけて、数列xとyの関係をグラフに描画する
+x軸に'x'と説明をつけたい	plt.xlabel('x')	x軸のラベルを'x'にする
+y軸に'y'と説明をつけたい	plt.ylabel('y')	y軸の説明を'y'にする
+グラフに凡例を追加したい	plt.legend(bbox_to_anchor=(1, 1), loc='upper right', borderaxespad=0)	凡例枠をグラフの右上に余白をあけず表示する。
+凡例をグラフの外側に表示したい	plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0)	凡例枠のグラフの左上外側に表示する
+グラフにタイトルをつけたい	plt.title('y=sin(x)')	グラフに'y=sin(x)'というタイトルをつける
+列の各値の個数を知りたい	data[cat_feat].value_counts()	dataのcat_featの各値の個数
+データフレームの各属性の種類を知りたい	data.dtypes	dataの各属性の型
+箱髭図を描きたい	plt.boxplot(data['G3'])	dataの'G3'列の箱髭図を描画する
+箱髭図を比較したい	plt.boxplot([data['G1'], data['G2'])	dataの'G1'列、'G2'列の箱髭図を描画する
+CSVファイルから表データを読み込みたい	data = pd.read_csv('xxxxx.csv')	CSVファイルの'xxxxx.csv'から表データを読み込む
+最初の5行を表示させたい	data.head()	表データ'data'の最初の5行を表示する
+最後の5行を表示させたい	data.tail()	表データ'data'の末尾5行を表示する
+1列目のデータだけを表示したい	data.iloc[0]	表データ'data'の1列目のデータを抽出し表示する
+xxxの列を表示したい	data['xxx']	表データ'data'の'xxx'列を抽出し表示する
+各行の欠損値をチェックしたい	data.isnull().sum()	表データ'data'の各行の欠損値の総数を表示する
+データフレームの属性とデータ形式を確認したい	data.info()	表データ'data'の属性とデータ形式のリストを表示する
+データフレームの基礎統計量を確認したい	data.describe()	表データ'data'の数値データの基礎統計量を集計する
+データフレームをCSVファイルとして保存したい	data.to_csv('xxx.csv', index=False)	表データ'data'をインデックスなしでCSVファイルに保存
+pandasライブラリを読み込みたい	import pandas as pd	pandasをpdとしてインポートする
+データフレーム同士を縦に合体させたい	pd.concat([data, data2])	表データ'data'と表データ'data2'を縦に連結
+データーフレーム同士を横に合体させたい	pd.concat([data, data2], axis=1)	表データ'data'と表データ'data2'を横方向に連結
+データフレームの欠損値を平均で穴埋めしたい	data.fillna(data.mean(), inplace=True)	表データ'data'の欠損値を平均値で補完
+データの先頭を見たい	df.head()	データ'df'の先頭5行を表示する
+xのサイズを確認したい	x.shape	xの各次元の大きさを確認
+student-mat.csvを読み込みたい	data = pd.read_csv('student-mat.csv')	student-mat.csvを読み込んだ結果をdataとする
+データの行と列の数を表示したい	df.shape	データ'df'の行数列を表示する
+dataの先頭を確認したい	data.head()	dataの先頭5行を表示する
+データの細かい情報がみたい	df.info()	データ'df'の詳細情報を表示する
+csvの区切り文字を;としてstudent-mat.csvを読み込みたい	data = pd.read_csv('student-mat.csv', sep=';')	student-mat.csvの区切り文字を;で読み込んだ結果をdataとする
+データの統計量がみたい	df.describe()	データ'df'の統計量を表示する
+データの70%を訓練データとして30%をテストデータとして分けたい	X_train, X_test, y_train, t_test = train_test_split(X, y, test_size=0.3, random_state=0)	全データ'X'と'y'からランダムに70%を訓練データ'X_train''とy_train'として抽出し残り30%をテストデータ'X_test'と'y_test'とする
+データを概観したい	data.info()	dataの情報をチェックする
+基本統計量をみたい	data.describe()	dataの基本統計量を見る
+xxxを学習させたい	xxx.fit(X_train, y_train)	xxxを学習データ'X_train'と'y_train'で学習させる
+Birth_year列だけをみたい	df['Birth_year']	dfの'Birth_year'列を表示する
+Birth_year列のみをみたい	df.Birth_year	dfの'Birth_year'列を表示する
+xxxでスコアを予測させたい	xxx.predict(X_test)	xxxでテストデータの説明変数'X_test'を用いて目的変数を予測をする
+複数の列を抽出したい	df[['ID', 'Birth_year']]	dfの'ID'列と'Birth_year'列を表示する
+xxxでスコアを予測したい	predict = xxx.predict(X_test)	xxxでテストデータの説明変数'X_test'から予測した目的変数をpredictとする
+データの年齢の列だけを表示したい	data['age']	データ'data'の'age'列のみを表示する
+データの年齢の列だけを表示したい	data.age	dataの'age'列のみを表示する
+正解率を確認したい	accuracy_score(y_test, predict)	予測された値がテストデータの目的変数'y_test'と一致している割合を算出する
+データフレームの相関係数を確認したい	data.corr()	表データ'data'の全属性の数値データ間の相関行列を表示
+カテゴリーデータのリストをみたい	print(list(data.dtypes.index))	dataのデータタイプをリストに入れて表示する
+一部の行を抽出したい	df[0:3]	0行目から3行目をdfから抽出する
+データの相関行列を表示したい	data.corr()	dataの相関行列を表示する
+xxxの箱ヒゲ図を表示したい	plt.boxplot(data['xxx'])	表データ'data'の'xxx'列の箱ヒゲ図を表示
+インデックスを指定して行を抽出する	df.loc['user1']	dfの'user1'行を抽出する
+インデックスの範囲を指定して行を抽出したい	df.loc['user1':'user3']	'user1'行から'user3'行をdfから抽出する
+EXというCSVファイルを読み込みたい	df = pd.read_csv('EX.csv')	EX.csvというCSVファイルをdfという名前のデータにして読み込みたい
+列名を指定して列を抽出したい	df.loc[:, 'Birth_year']	'Birth_year'列をdfから抽出する
+列名を複数指定して列を抽出したい	df.loc[, ['ID','Birth_year']]	'ID'列と'Birth_year'列をdfから抽出する
+行の範囲と列の範囲を選択して抽出したい	df.loc['user1':'user3', ['ID','Birth_year']]	'user1'行から'user3'行かつ'ID'列または'Birth_year'列をdfから抽出する
+xをデータフレームの各行で実行したい	df.apply(x)	表データ'df'の各カラムに関数'x'を適用
+行番号や列番号を指定して行や列を抽出したい	df.iloc[0:4, 0:2]	0行目から4行目かつ0列目から2列目をdfから抽出する
+条件に当てはまるデータを抽出したい	df[df['City'] == 'Tokyo']	'City'列が'Tokyo'であるデータをdfから抽出する
+NumPy配列内の文字列をcsvとして保存したい	np.savetxt('test.csv', tesu, delimiter=',', fmt="%s")	NumPy配列のtesuを'test.csv’に文字列として保存
+文字列を指定の文字で区切る。	txt=re.split('[。]',txt)	”。”を区切り文字として文字列txtを分割する。
+複数の条件に当てはまるデータを抽出したい	df[(df['Birth_year'] >= 1990) & (df['Birth_year'] < 1995)]	'Birth_year'列が1990以上かつ1995以下であるデータをdfから抽出する
+どれかの条件に当てはまるデータを抽出したい	df[df['City'].isin(['Tokyo','Osaka'])]	'City'列が'Tokyo'もしくは'Osaka'であるデータをdfから抽出する
+インデックスでソートしたい	df.sort_index()	dfをインデックスでソートする
+データフレームを値でソートしたい	df.sort_values(by='Birth_year', ascending=False)	dfを'Birth_year'列で降順にソートする
+欠損値が含まれているかどうかを調べたい	df.isnull()	dfの各要素が欠損値かどうかを判定する
+欠損値の総和を知りたい	df.isnull().sum()	dfの各列に含まれる欠損値の総和を求める
+2つのデータフレームを結合したい	pd.merge(df1, df2)	df1とdf2を内部結合する
+2つのデータフレームをキーを指定してマージしたい	pd.merge(df1, df2, on = 'id')	'id'列をキーとしてdf1とdf2をマージする
+2つのデータフレームを縦に結合したい	pd.concat([df1,df3])	df1とdf3を縦方向に結合する
+データフレームを縦方向に結合し、インデックスを振り直したい	pd.concat([df1, df3], ignore_index=True)	df1とdf3を縦方向に結合し、インデックスを付け直す
+2つのデータフレームを横方向に結合したい	pd.concat([df1, df2], axis=1)	df1とdf2を横方向に結合する
+データフレームから列を削除したい	df.drop(['Birth_year'], axis = 1)	dfから'Birth_year'列を削除する
+データフレームのある行を削除したい	df.drop(index=[0,2])	dfの0行と2行を削除する
+データフレームから列を削除したい	df.drop(columns='state')	dfの'state'列を削除する
+データフレームに重複が含まれているか調べたい	data.duplicated()	dataの行に重複がないか判定する
+データフレームから重複を削除したい	data.drop_duplicates()	dataから重複したデータを削除する
+ある列に含まれる値の個数を知りたい	df1.groupby('city').size()	df1に含まれる'city'列の値の個数を計算する
+ある列を軸として、他の列の平均値を算出したい	df1.groupby('city')['birth_year'].mean()	df1の'city'列を軸に、'birth_year'列の平均値を求める
+データフレームから欠損値を削除したい	df.dropna()	dfの欠損値を削除する
+データフレームの欠損値を値で埋めたい	df.fillna(0)	dfの欠損値を0で埋める
+データフレームの欠損値を平均値で埋めたい	df.fillna(df.mean())	dfの欠損値をdfの平均値で埋める
